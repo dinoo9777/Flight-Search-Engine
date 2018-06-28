@@ -1,0 +1,146 @@
+.content-wrapper{
+	margin-top:40px;
+	border:1px solid #eee;
+}
+.content-wrapper h1{
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    margin: 0px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 99;
+    background: #fff;
+}
+.sticky-sidebar{
+	position: sticky;
+    position: -webkit-sticky;
+    top: 80px;
+    z-index: 99;
+    background: #fff;
+}
+#tabs{
+    padding: 0;
+    border: 0;
+}
+#tabs .ui-tabs-nav{
+    background: none;
+    border-top: none;
+    padding: 0;
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+    border-color: #eee;
+}
+#tabs .ui-tabs-panel{
+	padding: 10px;
+	border: 1px solid #eee;
+    background: #eee;
+}
+#tabs .ui-tabs-nav li{
+	background: none;
+	opacity: 0.8;
+}
+#tabs .ui-tabs-nav li a:focus{outline: 0}
+#tabs .ui-tabs-nav li.ui-tabs-active{
+	border: 1px solid #eee;
+	background: #eee;
+	opacity: 1
+}
+#tabs .ui-tabs-nav li.ui-tabs-active a{
+	color:#888;		
+}
+.flight-route{
+	display:flex;
+	border-bottom: 1px solid #eee;
+	padding: 10px 20px;
+}
+.flight-route ul li:after {
+    content: '>';
+    position: absolute;
+    right: 0;
+}
+.flight-route ul {
+    display: flex;
+    list-style: none;
+    padding:0px;
+    margin: 0px;
+    width: 80%;
+    line-height: 2.5;
+}
+.flight-route ul li{
+    padding-right: 20px;
+    margin-right: 10px;
+    font-size: 20px;
+    position: relative;
+}
+.flight-route ul li:after{
+	content:'>';
+	position: absolute;
+	right: 0px;
+}
+.flight-route ul li:last-child:after{
+	content:'';
+}
+.flight-route .timedetail{
+	line-height: 1;
+}
+
+.result-panel{
+	border-left: 1px solid #eee;
+	padding:0px;
+}
+
+.sidebar-filter{
+    padding: 20px 10px;
+    width: 100%;
+}
+
+.sidebar-filter .form-group input{
+	margin-bottom: 10px;
+}
+.flight-list{
+	padding: 20px;
+}
+.flight-list .flight{
+	border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-flex;
+    width:100%;
+    margin-bottom: 10px;
+}
+
+.flight-list .price{
+    font-size: 30px;
+    padding: 0px 15px;
+    margin-top:0px;
+}
+.flight-list .flight .right-col{
+	width: 80%
+}
+.flight-list .flight .left-col{
+	width: 20%;
+}
+
+.flight-list .flight .book-now{
+	border-radius: 0px;
+	margin-top:10px; 
+}
+
+.refine-filter{
+    border: 1px solid #eee;
+    padding: 10px 10px 20px;
+    border-radius: 10px;
+    background: #fdfdfd;
+    margin-top:20px;
+}
+.refine-filter p{
+	display: flex;
+
+}
+#resultRange{
+    border: none;
+    width: 40%;
+    text-align: right;
+}

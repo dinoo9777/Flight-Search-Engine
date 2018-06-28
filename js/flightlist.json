@@ -1,0 +1,57 @@
+myObj = {
+	"flight1":{
+	    "name":"Air India",
+	    "price":1200,
+	    "time": [{ 
+	        	"departure":"10.00PM", 
+		        "arival":"1200"
+		    }
+		]
+	 },
+	"flight2":{
+	    "name":"Air India",
+	    "price":950,
+	    "time": [{ 
+	        	"departure":"10.00PM", 
+		        "arival":"1200"
+		    }
+		]
+	 },
+	 "flight3":{
+	    "name":"Air India",
+	    "price":1500,
+	    "time": [{ 
+	        	"departure":"10.00PM", 
+		        "arival":"1200"
+		    }
+		]
+	 },
+	 "flight4":{
+	    "name":"Air India",
+	    "price":1200,
+	    "time": [{ 
+	        	"departure":"10.00PM", 
+		        "arival":"1200"
+		    }
+		]
+	 },
+	 "flight5":{
+	    "name":"Air India",
+	    "price":500,
+	    "time": [{ 
+	        	"departure":"10.00PM", 
+		        "arival":"1200"
+		    }
+		]
+	 },
+	 "flight6":{
+	    "name":"Air India",
+	    "price":200,
+	    "time": [{ 
+	        	"departure":"10.00PM", 
+		        "arival":"1200"
+		    }
+		]
+	 }
+ }
+ 
