@@ -21,100 +21,114 @@
     
     
   </head>
-  <body ng-controller="FlightSearch">
+  <body ng-controller="FlightSearch" id="FlightSearch">
+    <div class="pre-loader">
+    </div>
     <div class="container" >
       <div class="content-wrapper">
         <h1>Flight Search Engine</h1>
         <div class="" style="padding:0px 15px;">
           <div class="row">
-            <div class="col-sm-3 sticky-sidebar">
+            <div class="col-md-3 col-sm-4 sticky-sidebar">
               <div class="sidebar-filter">
             <!-- Tab panes -->
-                <div id="tabs">
-                  <ul>
-                    <li><a href="#oneWayTab">One Way</a></li>
-                    <li><a href="#returnTab">Return</a></li>
-                  </ul>
-                  <div id="oneWayTab">
-                      <form>
-                        <div class="form-group">
-                          <input type="text" name="" class="form-control" placeholder="Enter Origin City"/>
-                          <input type="text" name="" class="form-control" placeholder="Enter Destination City"/>
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="" id="departure" class="form-control" placeholder="Departure Date">
-                          <input type="text" name="" id="return" class="form-control" placeholder="Return Date">
-                          <select class="passangers form-control">
-                            <optgroup>
-                              <option> Passanger </option>
-                              <option> 1 </option>
-                              <option> 2 </option>
-                              <option> 3 </option>
-                              <option> 4 </option>
-                              <option> 5 </option>
-                            </optgroup>
-                          </select>
-                        </div>
-                      </form>
+                  <div id="tabs">
+                    <ul>
+                      <li><a href="#oneWayTab">One Way</a></li>
+                      <li><a href="#returnTab">Return</a></li>
+                    </ul>
+                    <div id="oneWayTab">
+                        <form id="oneWayForm">
+                          <div class="form-group">
+                            <input type="text" name="from" id="frm1from" class="form-control from" placeholder="Enter Origin City"/>
+                            <input type="text" name="to" id="frm1to" class="form-control to" placeholder="Enter Destination City"/>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="departuredate" id="frm1departure" class="form-control departuredate" placeholder="Departure Date">
+                            <label>Passanger</label>
+                            <select class="passangers form-control">
+                              <optgroup>
+                                <option> 1 </option>
+                                <option> 2 </option>
+                                <option> 3 </option>
+                                <option> 4 </option>
+                                <option> 5 </option>
+                              </optgroup>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <button class="btn btn-primary formButton" >Search Flight</button>
+                          </div>
+                        </form>
+                    </div>
+                    <div id="returnTab">
+                        <form id="returnForm">
+                          <div class="form-group">
+                            <input type="text" name="from" id="frm2from" class="form-control from" placeholder="Enter Origin City"/>
+                            <input type="text" name="to" id="frm2to" class="form-control to" placeholder="Enter Destination City"/>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="departuredate" id="frm2departure" class="form-control departuredate2" placeholder="Departure Date">
+                            <input type="text" name="retunrdate" id="frm2return" class="form-control retunrdate" placeholder="Return Date">
+                            <label>Passanger</label>
+                            <select class="passangers form-control" id="frm2passanger">
+                              <optgroup>
+                                <option> 1 </option>
+                                <option> 2 </option>
+                                <option> 3 </option>
+                                <option> 4 </option>
+                                <option> 5 </option>
+                              </optgroup>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <button class="btn btn-primary formButton" >Search Flight</button>
+                          </div>
+                        </form>
+                    </div>
                   </div>
-                  <div id="returnTab">
-                    <form>
-                        <div class="form-group">
-                          <input type="text" name="" class="form-control" placeholder="Enter Origin City"/>
-                          <input type="text" name="" class="form-control" placeholder="Enter Destination City"/>
-                        </div>
-                        <div class="form-group">
-                          <input type="text" name="" id="departure" class="form-control" placeholder="Departure Date">
-                          <input type="text" name="" id="return" class="form-control" placeholder="Return Date">
-                          <select class="passangers form-control">
-                            <optgroup>
-                              <option> Passanger </option>
-                              <option> 1 </option>
-                              <option> 2 </option>
-                              <option> 3 </option>
-                              <option> 4 </option>
-                              <option> 5 </option>
-                            </optgroup>
-                          </select>
-                        </div>
-                      </form>
+                  <div class="refine-filter">
+                    <p>Refile flight search <input type="text" id="resultRange"></p>
+                    <input type="hidden" id="min">
+                    <input type="hidden" id="max">
+
+                    <div class="" id="priceRange"></div>
                   </div>
-                </div>
-                <div class="refine-filter">
-                  <p>Refile flight search <input type="text" id="resultRange"></span></p>
-                  <div class="" id="priceRange"></div>
-                </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary" id="priceFilter" ng-click="range()"> Flilter</button>
+                  </div>    
               </div>
             </div>
-            <div class="col-sm-9 result-panel">
+            <div class="col-md-9 col-sm-8 result-panel">
               <div class="flight-result">
                 <div class="flight-route">
                   <ul>
-                    <li>Pune</li>
-                    <li>Delhi</li>
-                    <li>Pune</li>
+                    <li>{{from}}</li>
+                    <li>{{to}}</li>
+                    <li>{{from}}</li>
                   </ul>
-                  <div class="timedetail">
-                    <p>Departure: </p>
-                    <p>Return: </p>
+                  <div class="timedetail" >
+                    <p>Departure: {{departureDate}}</p>
+                    <p>Return: {{returndateDate}}</p>
                   </div>
                 </div>
                 <div class="flight-list">
-                  <div class="flight" ng-repeat="flight in flightArr">
+                  {{error}}
+                  <div class="flight" ng-repeat="flight in flightArr | orderBy:'price'">
                     <div class="right-col">
                       <div class="row">
-                          <h4 class="price">RS. 9,800.00</h4>
-                          <div class="col-sm-6">
-                            <p>AI-202</p>
+                          <h4 class="price">RS. {{flight.price}}</h4>
+                          <div class="col-sm-6 col-xs-6">
+                            <p>{{flight.number}}</p>
                             <p>PNQ > DEL</p>
-                            <p>Depart: 10.00AM</p>
-                            <p>Arrive: 12.00PM</p>
+                            <p>Depart: {{flight.oneway.departure}}</p>
+                            <p>Arrive: {{flight.oneway.arrival}}</p>
                           </div>
-                          <div class="col-sm-6">
-                            <p>AI-202</p>
+                          <div class="col-sm-6 col-xs-6" ng-if=flight.return != ''>
+                            <p>{{flight.number}}</p>
                             <p>PNQ > DEL</p>
-                            <p>Depart: 08.00PM</p>
-                            <p>Arrive: 11.00PM</p>
+                            <p>Depart: {{flight.return.departure}}</p>
+                            <p>Arrive: {{flight.return.arrival}}</p>
                           </div>
                       </div>
                     </div>
@@ -137,54 +151,105 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js"></script>
+    <script src="js/angular.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
 
     <script src="js/angular-main.js"></script>
     <script type="text/javascript">
+      $(window).load(function(){
+        setTimeout(function(){
+          $('.pre-loader').hide();
+        },1000)
+      })
       $(window).ready(function(){
-        $( "#tabs" ).tabs();
-      $('body').on('focusout','#departure',function(){
-        if($(this).val() == ''){
-          this.type='text';
-        }else{
-          this.type='date';
-        }
-      }); 
-      $('body').on('focusin','#departure',function(){       
-          this.type='date';
-      }); 
-      $('body').on('focusout','#return',function(){
-        if($(this).val() == ''){
-          this.type='text';
-        }else{
-          this.type='date';
-        }
-      }); 
-      $('body').on('focusin','#return',function(){       
-          this.type='date';
-      }); 
-      
+        $('.formButton').click(function(){
+          if($(this).parents('form').attr('id') == 'oneWayForm'){
+            $('#oneWayForm').validate({
+              rules: {
+                'from': { required: true},
+                'to': { required: true},
+                'departuredate': { required: true},
+                'passangers': { required: true},
+              }
+            });
+            if($('#oneWayForm').valid()){
+              angular.element('#FlightSearch').scope().searchFlight(1);
+            }
+          }
+
+          if($(this).parents('form').attr('id') == 'returnForm'){
+            $('#returnForm').validate({
+              rules: {
+                'from': { required: true},
+                'to': { required: true},
+                'departuredate': { required: true,date:true},
+                'retunrdate': { required: true,date:true},
+                'passangers': { required: true},
+              }
+            });
+            if($('#returnForm').valid()){
+              angular.element('#FlightSearch').scope().searchFlight(2);
+            }
+          }
+        });
+        
+        
+        
+      //tabs 
+      $( "#tabs" ).tabs();
+
+      //datepicker
+      $('#frm1departure').datepicker({
+        minDate: new Date(),
+      });
+
+      $('#frm2departure').datepicker({
+        minDate: new Date(),
+      });
+
+      $('#frm2return').datepicker({
+        minDate: new Date(),
+      });
+
       // Price Range
       $( "#priceRange" ).slider({
           range: true,
           min: 0,
-          max: 500,
+          max: 2000,
           values: [ 75, 300 ],
           slide: function( event, ui ) {
             $( "#resultRange" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-            //console.log('1st'+ ui.values[ 0 ]+' 2nd: '+ui.values[ 1 ]);
+            $('#priceFilter').trigger('click');
+            $('#min').val(ui.values[ 0 ]);
+            $('#max').val(ui.values[ 1 ]);
           }
         });
 
-     
-      
-        $( "#resultRange" ).val( "$" + $( "#priceRange" ).slider( "values", 0 ) +
-          " - $" + $( "#priceRange" ).slider( "values", 1 ) );
+        // $( "#min" ).val($( "#priceRange" ).slider( "values", 0 ));
+        // $( "#max" ).val($( "#priceRange" ).slider( "values", 1 ));
+        // $( "#resultRange" ).val( "$" + $( "#priceRange" ).slider( "values", 0 ) +
+        //   " - $" + $( "#priceRange" ).slider( "values", 1 ) );
+
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+         if(dd<10){
+                dd='0'+dd
+            } 
+            if(mm<10){
+                mm='0'+mm
+            } 
+
+        today = yyyy+'-'+mm+'-'+dd;
+        $(".departuredate").attr("min", today);
+        $(".retunrdate").attr("min", today);
       });
       
     </script>

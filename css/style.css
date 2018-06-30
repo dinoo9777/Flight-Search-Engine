@@ -2,6 +2,7 @@
 	margin-top:40px;
 	border:1px solid #eee;
 }
+
 .content-wrapper h1{
     padding: 20px;
     border-bottom: 1px solid #eee;
@@ -12,6 +13,10 @@
     z-index: 99;
     background: #fff;
 }
+.timedetail p{
+    font-size: 12px;
+}
+
 .sticky-sidebar{
 	position: sticky;
     position: -webkit-sticky;
@@ -19,10 +24,16 @@
     z-index: 99;
     background: #fff;
 }
+
+#ui-datepicker-div{
+    z-index: 99 !important;
+}
+
 #tabs{
     padding: 0;
     border: 0;
 }
+
 #tabs .ui-tabs-nav{
     background: none;
     border-top: none;
@@ -32,34 +43,44 @@
     border-radius: 0;
     border-color: #eee;
 }
+
 #tabs .ui-tabs-panel{
 	padding: 10px;
 	border: 1px solid #eee;
     background: #eee;
 }
+
 #tabs .ui-tabs-nav li{
 	background: none;
 	opacity: 0.8;
 }
-#tabs .ui-tabs-nav li a:focus{outline: 0}
+
+#tabs .ui-tabs-nav li a:focus{
+    outline: 0
+}
+
 #tabs .ui-tabs-nav li.ui-tabs-active{
 	border: 1px solid #eee;
 	background: #eee;
 	opacity: 1
 }
+
 #tabs .ui-tabs-nav li.ui-tabs-active a{
 	color:#888;		
 }
+
 .flight-route{
 	display:flex;
 	border-bottom: 1px solid #eee;
 	padding: 10px 20px;
 }
+
 .flight-route ul li:after {
     content: '>';
     position: absolute;
     right: 0;
 }
+
 .flight-route ul {
     display: flex;
     list-style: none;
@@ -68,20 +89,25 @@
     width: 80%;
     line-height: 2.5;
 }
+
 .flight-route ul li{
     padding-right: 20px;
     margin-right: 10px;
     font-size: 20px;
     position: relative;
+    text-transform: capitalize;
 }
+
 .flight-route ul li:after{
 	content:'>';
 	position: absolute;
 	right: 0px;
 }
+
 .flight-route ul li:last-child:after{
 	content:'';
 }
+
 .flight-route .timedetail{
 	line-height: 1;
 }
@@ -99,9 +125,11 @@
 .sidebar-filter .form-group input{
 	margin-bottom: 10px;
 }
+
 .flight-list{
 	padding: 20px;
 }
+
 .flight-list .flight{
 	border: 1px solid #eee;
     padding: 20px;
@@ -116,9 +144,11 @@
     padding: 0px 15px;
     margin-top:0px;
 }
+
 .flight-list .flight .right-col{
 	width: 80%
 }
+
 .flight-list .flight .left-col{
 	width: 20%;
 }
@@ -137,10 +167,59 @@
 }
 .refine-filter p{
 	display: flex;
-
 }
+
 #resultRange{
     border: none;
     width: 40%;
     text-align: right;
+}
+
+#priceFilter{
+    opacity: 0;
+}
+.pre-loader {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/loading_default_en.gif);
+    background-color: #fff;
+    display: block;
+    z-index: 999;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+@media only screen and (max-width: 480px){
+    .sticky-sidebar{
+        position: relative;
+    }
+    .flight-list .flight{
+        display: block;
+    }
+    .flight-list .flight .left-col img{
+        width: 100%;
+    }
+    .flight-list .flight .left-col{
+        width: 100%;
+    }
+    .flight-list .flight .right-col{
+        width: 100%;
+    }
+    
+}
+@media only screen and (max-width: 1130px){
+    .flight-route ul{
+        width: 70%;
+    }
+    .sidebar-filter{
+        padding: 20px 0px;
+    }
+    .flight-list .flight .left-col{
+        width: 30%
+    }
+    .flight-list .flight .right-col{
+        width: 70%;
+    }
 }
