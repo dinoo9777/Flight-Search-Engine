@@ -231,12 +231,12 @@ flightApp.controller('FlightSearch', function FlightSearch($scope, $rootScope, $
   		$scope.temp=[];
   		if(ftype == 2){
 
-  			$rootScope.from = angular.element('#frm2from').val();
-			$rootScope.to = angular.element('#frm2to').val();
+  			$rootScope.from = angular.element('#frm2from').val().toLowerCase();
+			$rootScope.to = angular.element('#frm2to').val().toLowerCase();
 			$rootScope.departureDate = angular.element('#frm2departure').val();
 			$rootScope.returnDate = angular.element('#frm2departure').val();
   			angular.forEach($scope.flightreturn, function(value) {
-	  			if(value.from == $rootScope.from && value.to == $rootScope.to){
+	  			if(value.from.toLowerCase() == $rootScope.from && value.to.toLowerCase() == $rootScope.to){
 	  				$scope.temp.push(value);
 	  				console.log('search ok');
 	  			}else{
@@ -250,14 +250,14 @@ flightApp.controller('FlightSearch', function FlightSearch($scope, $rootScope, $
 
   		}else{	
 
-  			$rootScope.from = angular.element('#frm1from').val();
-			$rootScope.to = angular.element('#frm1to').val();
+  			$rootScope.from = angular.element('#frm1from').val().toLowerCase();
+			$rootScope.to = angular.element('#frm1to').val().toLowerCase();
 			$rootScope.departureDate = angular.element('#frm1departure').val();
 			console.log('From:'+ $rootScope.from);
 			console.log('To:'+$rootScope.to);
 
   			angular.forEach($scope.flightOneWay, function(value) {
-	  			if(value.from == $rootScope.from && value.to == $rootScope.to){
+	  			if(value.from.toLowerCase() == $rootScope.from && value.to.toLowerCase() == $rootScope.to){
 	  				$scope.temp.push(value);
 	  				console.log('search ok');
 	  			}else{

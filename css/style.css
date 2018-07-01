@@ -1,3 +1,6 @@
+body{
+    background: #fcfcfc;
+}
 .content-wrapper{
 	margin-top:40px;
 	border:1px solid #eee;
@@ -73,6 +76,7 @@
 	display:flex;
 	border-bottom: 1px solid #eee;
 	padding: 10px 20px;
+    background: #fff;
 }
 
 .flight-route ul li:after {
@@ -137,6 +141,7 @@
     display: inline-flex;
     width:100%;
     margin-bottom: 10px;
+    background: #fff;
 }
 
 .flight-list .price{
